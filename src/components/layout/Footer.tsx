@@ -40,7 +40,8 @@ export function Footer() {
         </div>
 
         <p className="mt-8 text-center text-xs text-bone/30">
-          Construído com React, TypeScript e Tailwind CSS · {new Date().getFullYear()}
+          Construído com React, TypeScript e Tailwind CSS ·{" "}
+          {new Date().getFullYear()}
         </p>
       </div>
     </footer>
