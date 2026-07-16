@@ -75,8 +75,8 @@ export function GroupTable({ groupId }: GroupTableProps) {
         </table>
       </div>
 
-      <p className="border-t border-white/5 bg-white/[0.01] px-5 py-3 text-[10px] text-neutral-500 font-semibold leading-relaxed">
-        Os dois primeiros colocados (destacados) avançam direto ao mata-mata[cite: 14].
+      <p className="flex items-center justify-center border-t border-white/5 bg-white/[0.01] px-5 py-3 text-[10px] text-neutral-500 font-semibold leading-relaxed">
+        Os dois primeiros colocados (destacados) avançam direto ao mata-mata.
       </p>
     </Card>
   );

@@ -18,7 +18,7 @@ export async function fetchWorldCupData(): Promise<WorldCupData> {
 const OPENROUTER_BASE_URL =
   import.meta.env.VITE_OPENROUTER_BASE_URL ?? "https://openrouter.ai/api/v1";
 const OPENROUTER_MODEL =
-  import.meta.env.VITE_OPENROUTER_MODEL ?? "meta-llama/llama-3.1-8b-instruct:free";
+  import.meta.env.VITE_OPENROUTER_MODEL ?? "meta-llama/llama-3.3-70b-instruct:free";
 const OPENROUTER_API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY as
   | string
   | undefined;

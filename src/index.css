@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@theme {
+  --color-pitch-lighter: #2f8a61;
+  --color-pitch-light: #1a5a41;
+  --color-pitch: #123524;
+  --color-gold-light: #f4d47c;
+  --color-gold: #e3b23c;
+  --color-turf: #2f8a61;
+  --color-bone: #f7efe4;
+  --color-ink: #060e0b;
+  --color-flame: #ff4d4f;
+}
+
 @layer base {
   :root {
     --color-bg-main: #060e0b;
@@ -16,12 +28,16 @@
   }
 
   body {
-    margin: 1rem;
-    padding: 1.5rem;
+    margin: 0;
+    padding: 0;
     min-height: 100vh;
-    background-color: var(--color-bg-main);
-    color: var(--color-bone);
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #060e0b;
+    color: #f7efe4;
+    font-family:
+      "Inter",
+      system-ui,
+      -apple-system,
+      sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -31,17 +47,17 @@
   }
 
   ::selection {
-    background-color: var(--color-gold);
-    color: var(--color-bg-main);
+    background-color: #e3b23c;
+    color: #060e0b;
   }
 
   * {
-    scrollbar-color: var(--color-green-accent) var(--color-bg-main);
+    scrollbar-color: #2f8a61 #060e0b;
     scrollbar-width: thin;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-gold);
+    outline: 2px solid #e3b23c;
     outline-offset: 2px;
   }
 }
@@ -59,7 +75,7 @@
   .glass-card-hover {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   .glass-card-hover:hover {
     background: rgba(18, 53, 36, 0.35);
     border-color: rgba(227, 178, 60, 0.2);
