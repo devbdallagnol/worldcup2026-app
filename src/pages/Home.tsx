@@ -149,7 +149,7 @@ export function Home() {
             </h1>
             <p className="mt-5 max-w-xl text-sm text-neutral-400 leading-relaxed font-medium">
               Acompanhe os 48 países, a fase de grupos, o mata-mata e converse
-              com um assistente de IA para tirar dúvidas sobre a maior Copa da história[cite: 17].
+              com um assistente de IA para tirar dúvidas sobre a maior Copa da história.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
               <Link to="/grupos" className="flex-shrink-0">
@@ -174,7 +174,7 @@ export function Home() {
             ) : (
               <div className="rounded-xl border border-white/5 bg-white/[0.01] p-6 text-center">
                 <p className="text-xs font-semibold text-neutral-500">
-                  A programação será atualizada em breve[cite: 17].
+                  A programação será atualizada em breve.
                 </p>
               </div>
             )}
