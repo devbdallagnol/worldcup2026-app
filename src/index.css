@@ -1,120 +1,56 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@theme {
-  --color-pitch-lighter: #2f8a61;
-  --color-pitch-light: #1a5a41;
-  --color-pitch: #123524;
-  --color-gold-light: #f4d47c;
-  --color-gold: #e3b23c;
-  --color-turf: #2f8a61;
-  --color-bone: #f7efe4;
-  --color-ink: #060e0b;
-  --color-flame: #ff4d4f;
-}
+@import "tailwindcss";
 
 @layer base {
-  :root {
-    --color-bg-main: #060e0b;
-    --color-green-primary: #123524;
-    --color-green-accent: #2f8a61;
-    --color-gold: #e3b23c;
-    --color-bone: #f7efe4;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    background-color: #060e0b;
-    color: #f7efe4;
-    font-family:
-      "Inter",
-      system-ui,
-      -apple-system,
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    /* Força o fundo ultra escuro no body para dar contraste */
+    background-color: #030705 !important;
+    @apply text-neutral-200 antialiased;
   }
 
-  #root {
-    min-height: 100vh;
+  /* Reset global para Inputs e Selects não herdarem o branco do navegador */
+  input, select, textarea {
+    @apply bg-black/40 border-white/10 text-neutral-200;
   }
 
-  ::selection {
-    background-color: #e3b23c;
-    color: #060e0b;
-  }
-
-  * {
-    scrollbar-color: #2f8a61 #060e0b;
-    scrollbar-width: thin;
-  }
-
-  :focus-visible {
-    outline: 2px solid #e3b23c;
-    outline-offset: 2px;
+  /* Remove o fundo branco nativo dos campos de option dentro do select */
+  option {
+    @apply bg-[#060e0b] text-neutral-300;
   }
 }
 
-/* Utilitários modernos de Glassmorphism & Neon Glow */
-@layer utilities {
-  .glass-card {
-    background: rgba(18, 53, 36, 0.25);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  }
-
-  .glass-card-hover {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .glass-card-hover:hover {
-    background: rgba(18, 53, 36, 0.35);
-    border-color: rgba(227, 178, 60, 0.2);
-    box-shadow: 0 10px 40px 0 rgba(227, 178, 60, 0.05);
-    transform: translateY(-2px);
-  }
-
-  .text-glow {
-    text-shadow: 0 0 12px rgba(227, 178, 60, 0.4);
-  }
-
-  .gold-gradient-text {
-    background: linear-gradient(135deg, #f7efe4 30%, #e3b23c 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+/* Define o visual premium do Glass Card */
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(6, 14, 11, 0.7) 0%,
+    rgba(3, 7, 5, 0.85) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+/* Efeito Glow para textos dourados em destaque */
+.text-glow {
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.35);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Gradiente de texto dourado */
+.gold-gradient-text {
+  @apply bg-gradient-to-r from-amber-400 via-amber-200 to-amber-400 bg-clip-text text-transparent;
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+/* Otimização de barra de rolagem */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #030705;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(251, 191, 36, 0.3);
 }

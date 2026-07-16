@@ -12,9 +12,9 @@ export function Card({
 }: CardProps) {
   return (
     <div
-      className={`glass-card rounded-2xl border border-white/5 shadow-2xl relative overflow-hidden ${
+      className={`glass-card rounded-2xl border border-white/5 shadow-2xl relative overflow-hidden bg-black/40 ${
         hoverable
-          ? "transition-all duration-300 ease-out hover:-translate-y-1 hover:border-gold/30 hover:shadow-[0_12px_40px_rgba(227,178,60,0.06)] bg-emerald-950/20 hover:bg-emerald-950/25"
+          ? "transition-all duration-300 ease-out hover:-translate-y-1 hover:border-amber-500/30 hover:shadow-[0_12px_40px_rgba(245,158,11,0.06)] hover:bg-emerald-950/15"
           : ""
       } ${className}`}
       {...props}

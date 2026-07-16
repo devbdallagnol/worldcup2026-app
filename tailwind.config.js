@@ -1,28 +1,38 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       colors: {
+        // Cores personalizadas do tema da Copa
         pitch: {
-          lighter: "#2f8a61",
-          light: "#1a5a41",
-          DEFAULT: "#123524",
+          DEFAULT: '#030705',      // Verde ultra escuro/quase preto para o body
+          light: '#060e0b',        // Tom ligeiramente mais claro para cards de vidro
+          lighter: '#0e1a15',      // Usado em skeletons/hovers
         },
+        bone: {
+          DEFAULT: '#f5f5f7',      // Branco fosco elegante para textos principais
+          dark: '#a1a1aa',
+        },
+        line: 'rgba(255, 255, 255, 0.05)', // Bordas translúcidas de vidro
         gold: {
-          light: "#f4d47c",
-          DEFAULT: "#e3b23c",
+          DEFAULT: '#fbbf24',      // Destaques em âmbar/ouro
+          light: '#fde047',
         },
-        turf: "#2f8a61",
-        bone: "#f7efe4",
-        ink: "#060e0b",
-        flame: "#ff4d4f",
+        turf: {
+          DEFAULT: '#10b981',      // Verde campo para destaques secundários
+        }
       },
       fontFamily: {
-        display: ["system-ui", "-apple-system", "sans-serif"],
+        display: ['Orbitron', 'sans-serif'], // Ou qualquer outra fonte display importada
       },
-      borderRadius: {
-        display: "24px",
-      },
+      tracking: {
+        widest2: '0.2em',
+      }
     },
   },
-};
+  plugins: [],
+}
