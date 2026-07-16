@@ -128,6 +128,19 @@
       "status": "finished"
     },
     {
+      "id": "m5",
+      "stage": "Fase de Grupos",
+      "group": "C",
+      "homeTeam": "bra",
+      "awayTeam": "mar",
+      "homeScore": 1,
+      "awayScore": 1,
+      "date": "2026-06-13T18:00:00-05:00",
+      "stadium": "MetLife Stadium",
+      "city": "Nova Jersey, EUA",
+      "status": "finished"
+    },
+    {
       "id": "m4",
       "stage": "Fase de Grupos",
       "group": "D",
@@ -141,16 +154,16 @@
       "status": "finished"
     },
     {
-      "id": "m5",
+      "id": "m7",
       "stage": "Fase de Grupos",
-      "group": "C",
-      "homeTeam": "bra",
-      "awayTeam": "mar",
-      "homeScore": 1,
+      "group": "E",
+      "homeTeam": "ger",
+      "awayTeam": "cuw",
+      "homeScore": 7,
       "awayScore": 1,
-      "date": "2026-06-13T18:00:00-05:00",
-      "stadium": "MetLife Stadium",
-      "city": "Nova Jersey, EUA",
+      "date": "2026-06-14T19:00:00-05:00",
+      "stadium": "NRG Stadium",
+      "city": "Houston, EUA",
       "status": "finished"
     },
     {
@@ -167,18 +180,84 @@
       "status": "finished"
     },
     {
-      "id": "m7",
+      "id": "m8",
       "stage": "Fase de Grupos",
-      "group": "E",
-      "homeTeam": "ger",
-      "awayTeam": "cuw",
-      "homeScore": 7,
+      "group": "G",
+      "homeTeam": "bel",
+      "awayTeam": "egy",
+      "homeScore": 1,
+      "awayScore": 0,
+      "date": "2026-06-15T15:00:00-05:00",
+      "stadium": "Lincoln Financial Field",
+      "city": "Filadélfia, EUA",
+      "status": "finished"
+    },
+    {
+      "id": "m9",
+      "stage": "Fase de Grupos",
+      "group": "H",
+      "homeTeam": "esp",
+      "awayTeam": "cpv",
+      "homeScore": 3,
+      "awayScore": 0,
+      "date": "2026-06-15T18:00:00-05:00",
+      "stadium": "Gillette Stadium",
+      "city": "Boston, EUA",
+      "status": "finished"
+    },
+    {
+      "id": "m10",
+      "stage": "Fase de Grupos",
+      "group": "I",
+      "homeTeam": "fra",
+      "awayTeam": "nor",
+      "homeScore": 2,
       "awayScore": 1,
-      "date": "2026-06-14T19:00:00-05:00",
-      "stadium": "NRG Stadium",
-      "city": "Houston, EUA",
+      "date": "2026-06-16T15:00:00-05:00",
+      "stadium": "Lumen Field",
+      "city": "Seattle, EUA",
+      "status": "finished"
+    },
+    {
+      "id": "m11",
+      "stage": "Fase de Grupos",
+      "group": "J",
+      "homeTeam": "arg",
+      "awayTeam": "aut",
+      "homeScore": 2,
+      "awayScore": 0,
+      "date": "2026-06-16T18:00:00-05:00",
+      "stadium": "Hard Rock Stadium",
+      "city": "Miami, EUA",
+      "status": "finished"
+    },
+    {
+      "id": "m12",
+      "stage": "Fase de Grupos",
+      "group": "K",
+      "homeTeam": "col",
+      "awayTeam": "por",
+      "homeScore": 1,
+      "awayScore": 2,
+      "date": "2026-06-17T15:00:00-05:00",
+      "stadium": "BC Place",
+      "city": "Vancouver, Canadá",
+      "status": "finished"
+    },
+    {
+      "id": "m13",
+      "stage": "Fase de Grupos",
+      "group": "L",
+      "homeTeam": "eng",
+      "awayTeam": "cro",
+      "homeScore": 1,
+      "awayScore": 1,
+      "date": "2026-06-17T18:00:00-05:00",
+      "stadium": "Mercedes-Benz Stadium",
+      "city": "Atlanta, EUA",
       "status": "finished"
     }
+    
   ],
   "knockout": [
     {

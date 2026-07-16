@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchWorldCupData } from "../services/api";
 import type { Group, GroupStanding, Match, Team, WorldCupData } from "../types";
@@ -11,31 +12,44 @@ export function useWorldCupData() {
   return useQuery<WorldCupData>({
     queryKey: QUERY_KEY,
     queryFn: fetchWorldCupData,
-    staleTime: 1000 * 60 * 5, // 5 minutos
+    staleTime: 1000 * 60 * 5, // 5 minutos de cache
   });
 }
 
-/** Retorna os jogos de um grupo específico (ex.: "A"). */
+/** 
+ * Retorna os jogos de um grupo específico (ex.: "A").
+ */
 export function useMatchesByGroup(groupId?: string) {
   const { data, ...rest } = useWorldCupData();
-  const matches = groupId
-    ? data?.matches.filter((m) => m.group === groupId) ?? []
-    : data?.matches ?? [];
+  
+  const matches = useMemo(() => {
+    if (!data?.matches) return [];
+    if (!groupId) return data.matches;
+    return data.matches.filter((m) => m.group === groupId);
+  }, [data?.matches, groupId]);
+
   return { matches, ...rest };
 }
 
-/** Calcula a tabela de classificação de um grupo a partir dos jogos finalizados. */
+/** 
+ * Calcula a tabela de classificação de um grupo a partir dos jogos finalizados.
+ * Envolvido em useMemo para otimização de performance.
+ */
 export function useGroupStandings(groupId: string) {
   const { data, isLoading, error } = useWorldCupData();
 
-  const standings: GroupStanding[] = [];
+  const standings = useMemo<GroupStanding[]>(() => {
+    if (!data) return [];
 
-  if (data) {
     const group = data.groups.find((g: Group) => g.id === groupId);
-    const teams = (group?.teams ?? [])
-      .map((teamId) => data.teams.find((t: Team) => t.id === teamId))
-      .filter(Boolean) as Team[];
+    if (!group) return [];
 
+    // Mapeia os IDs dos times do grupo para as entidades completas de Team
+    const teams = (group.teams ?? [])
+      .map((teamId) => data.teams.find((t: Team) => t.id === teamId))
+      .filter((t): t is Team => !!t);
+
+    // Inicializa a tabela de classificação para cada seleção do grupo
     const table = new Map<string, GroupStanding>(
       teams.map((team) => [
         team.id,
@@ -53,14 +67,19 @@ export function useGroupStandings(groupId: string) {
       ])
     );
 
+    // Filtra apenas os jogos encerrados pertencentes a este grupo
     const groupMatches = data.matches.filter(
       (m: Match) => m.group === groupId && m.status === "finished"
     );
 
+    // Processa os resultados de cada partida
     for (const match of groupMatches) {
       const home = table.get(match.homeTeam);
       const away = table.get(match.awayTeam);
-      if (!home || !away || match.homeScore === null || match.awayScore === null) continue;
+      
+      if (!home || !away || match.homeScore === null || match.awayScore === null) {
+        continue;
+      }
 
       home.played += 1;
       away.played += 1;
@@ -85,19 +104,23 @@ export function useGroupStandings(groupId: string) {
       }
     }
 
+    // Calcula o saldo de gols e converte o Map para array
+    const list: GroupStanding[] = [];
     for (const row of table.values()) {
       row.goalDifference = row.goalsFor - row.goalsAgainst;
-      standings.push(row);
+      list.push(row);
     }
 
-    standings.sort(
+    // Ordenação seguindo regras oficiais da FIFA:
+    // 1. Pontos -> 2. Saldo de Gols -> 3. Gols Pró -> 4. Ordem Alfabética
+    return list.sort(
       (a, b) =>
         b.points - a.points ||
         b.goalDifference - a.goalDifference ||
         b.goalsFor - a.goalsFor ||
         a.team.name.localeCompare(b.team.name)
     );
-  }
+  }, [data, groupId]);
 
   return { standings, isLoading, error };
 }
