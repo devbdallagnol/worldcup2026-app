@@ -14,67 +14,69 @@ export function GroupTable({ groupId }: GroupTableProps) {
   if (isLoading) {
     return (
       <Card className="animate-pulse p-5">
-        <div className="h-40 w-full rounded-lg bg-pitch-lighter" />
+        <div className="h-44 w-full rounded-xl bg-white/[0.02]" />
       </Card>
     );
   }
 
   return (
     <Card className="overflow-hidden">
-      <div className="flex items-center justify-between border-b border-line px-5 py-3">
-        <h3 className="font-display text-xl tracking-wide text-bone">
+      <div className="flex items-center justify-between border-b border-white/5 px-5 py-4 bg-white/[0.01]">
+        <h3 className="font-display text-xl font-black tracking-tight text-neutral-100">
           Grupo {groupId}
         </h3>
         <Badge tone="gold">{standings.length} seleções</Badge>
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-[420px] text-sm">
+      <div className="overflow-x-auto scrollbar-none">
+        <table className="w-full min-w-[420px] text-xs">
           <thead>
-            <tr className="text-left text-[11px] uppercase tracking-widest2 text-bone/40">
-              <th className="px-5 py-2 font-medium">Seleção</th>
+            <tr className="text-left text-[10px] font-black uppercase tracking-widest text-neutral-500">
+              <th className="px-5 py-3.5 font-bold">Seleção</th>
               {COLUMNS.map((col) => (
-                <th key={col} className="px-2 py-2 text-center font-medium">
+                <th key={col} className="px-2.5 py-3.5 text-center font-bold">
                   {col}
                 </th>
               ))}
             </tr>
           </thead>
-          <tbody>
+          <tbody className="divide-y divide-white/5">
             {standings.map((row, index) => (
               <tr
                 key={row.team.id}
-                className={`border-t border-line ${index < 2 ? "bg-turf/10" : ""}`}
+                className={`transition-colors duration-200 hover:bg-white/[0.01] ${
+                  index < 2 ? "bg-emerald-500/[0.03]" : ""
+                }`}
               >
-                <td className="whitespace-nowrap px-5 py-2.5">
-                  <div className="flex items-center gap-2.5">
+                <td className="whitespace-nowrap px-5 py-3">
+                  <div className="flex items-center gap-3">
                     <img
                       src={`https://flagcdn.com/w40/${row.team.flag}.png`}
                       alt={`Bandeira de ${row.team.name}`}
-                      className="h-4 w-6 rounded-[2px] object-cover"
+                      className="h-4 w-6 rounded-[2px] object-cover shadow-sm border border-white/10"
                       loading="lazy"
                     />
-                    <span className="font-medium text-bone">{row.team.name}</span>
+                    <span className="font-bold text-neutral-200">{row.team.name}</span>
                   </div>
                 </td>
-                <td className="px-2 py-2.5 text-center text-bone/70">{row.played}</td>
-                <td className="px-2 py-2.5 text-center text-bone/70">{row.wins}</td>
-                <td className="px-2 py-2.5 text-center text-bone/70">{row.draws}</td>
-                <td className="px-2 py-2.5 text-center text-bone/70">{row.losses}</td>
-                <td className="px-2 py-2.5 text-center text-bone/70">{row.goalsFor}</td>
-                <td className="px-2 py-2.5 text-center text-bone/70">{row.goalsAgainst}</td>
-                <td className="px-2 py-2.5 text-center text-bone/70">
+                <td className="px-2.5 py-3 text-center text-neutral-400 font-medium">{row.played}</td>
+                <td className="px-2.5 py-3 text-center text-neutral-400 font-medium">{row.wins}</td>
+                <td className="px-2.5 py-3 text-center text-neutral-400 font-medium">{row.draws}</td>
+                <td className="px-2.5 py-3 text-center text-neutral-400 font-medium">{row.losses}</td>
+                <td className="px-2.5 py-3 text-center text-neutral-400 font-medium">{row.goalsFor}</td>
+                <td className="px-2.5 py-3 text-center text-neutral-400 font-medium">{row.goalsAgainst}</td>
+                <td className="px-2.5 py-3 text-center text-neutral-400 font-medium">
                   {row.goalDifference > 0 ? `+${row.goalDifference}` : row.goalDifference}
                 </td>
-                <td className="px-2 py-2.5 text-center font-bold text-gold">{row.points}</td>
+                <td className="px-2.5 py-3 text-center font-black text-amber-400 text-glow">{row.points}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      <p className="border-t border-line px-5 py-2.5 text-[11px] text-bone/40">
-        Os dois primeiros colocados (destacados) avançam direto ao mata-mata.
+      <p className="border-t border-white/5 bg-white/[0.01] px-5 py-3 text-[10px] text-neutral-500 font-semibold leading-relaxed">
+        Os dois primeiros colocados (destacados) avançam direto ao mata-mata[cite: 14].
       </p>
     </Card>
   );

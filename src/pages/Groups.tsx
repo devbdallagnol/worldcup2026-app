@@ -13,7 +13,7 @@ export function Groups() {
         description="12 grupos de 4 seleções. Os dois primeiros de cada grupo avançam direto às oitavas de final."
       />
 
-      {isLoading && <p className="text-bone/40">Carregando grupos...</p>}
+      {isLoading && <p className="text-xs text-neutral-500 font-semibold animate-pulse">Carregando grupos...</p>}
 
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {data?.groups.map((group) => (

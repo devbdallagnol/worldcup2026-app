@@ -3,27 +3,78 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-bg-main: #060e0b;
+    --color-green-primary: #123524;
+    --color-green-accent: #2f8a61;
+    --color-gold: #e3b23c;
+    --color-bone: #f7efe4;
+  }
+
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    background-color: #0e1a16;
+    margin: 1rem;
+    padding: 1.5rem;
+    min-height: 100vh;
+    background-color: var(--color-bg-main);
+    color: var(--color-bone);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    min-height: 100vh;
   }
 
   ::selection {
-    background-color: #e3b23c;
-    color: #0a1210;
+    background-color: var(--color-gold);
+    color: var(--color-bg-main);
   }
 
   * {
-    scrollbar-color: #2f8a61 #0e1a16;
+    scrollbar-color: var(--color-green-accent) var(--color-bg-main);
     scrollbar-width: thin;
   }
 
   :focus-visible {
-    outline: 2px solid #e3b23c;
+    outline: 2px solid var(--color-gold);
     outline-offset: 2px;
+  }
+}
+
+/* Utilitários modernos de Glassmorphism & Neon Glow */
+@layer utilities {
+  .glass-card {
+    background: rgba(18, 53, 36, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .glass-card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass-card-hover:hover {
+    background: rgba(18, 53, 36, 0.35);
+    border-color: rgba(227, 178, 60, 0.2);
+    box-shadow: 0 10px 40px 0 rgba(227, 178, 60, 0.05);
+    transform: translateY(-2px);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 12px rgba(227, 178, 60, 0.4);
+  }
+
+  .gold-gradient-text {
+    background: linear-gradient(135deg, #f7efe4 30%, #e3b23c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 
@@ -35,4 +86,19 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

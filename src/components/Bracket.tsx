@@ -7,8 +7,8 @@ const STAGE_ORDER = ["Oitavas de Final", "Quartas de Final", "Semifinal", "Final
 function TeamLine({ team, score, isWinner }: { team?: Team; score: number | null; isWinner: boolean }) {
   return (
     <div
-      className={`flex items-center justify-between gap-2 px-3 py-1.5 ${
-        isWinner ? "bg-turf/15" : ""
+      className={`flex items-center justify-between gap-2 px-4 py-2 transition-colors duration-200 ${
+        isWinner ? "bg-emerald-500/10" : ""
       }`}
     >
       <span className="flex min-w-0 items-center gap-2">
@@ -16,15 +16,15 @@ function TeamLine({ team, score, isWinner }: { team?: Team; score: number | null
           <img
             src={`https://flagcdn.com/w40/${team.flag}.png`}
             alt=""
-            className="h-3.5 w-5 shrink-0 rounded-[2px] object-cover"
+            className="h-3.5 w-5 shrink-0 rounded-[2px] object-cover shadow-sm"
             loading="lazy"
           />
         )}
-        <span className={`truncate text-xs ${isWinner ? "font-bold text-bone" : "text-bone/60"}`}>
+        <span className={`truncate text-xs ${isWinner ? "font-extrabold text-amber-400" : "text-neutral-400"}`}>
           {team?.name ?? "A definir"}
         </span>
       </span>
-      <span className={`font-mono text-xs ${isWinner ? "text-gold" : "text-bone/40"}`}>
+      <span className={`font-mono text-xs font-bold ${isWinner ? "text-amber-400 text-glow" : "text-neutral-500"}`}>
         {score ?? "–"}
       </span>
     </div>
@@ -40,12 +40,12 @@ function BracketMatch({ match, teamsById }: { match: KnockoutMatch; teamsById: M
     match.homeScore !== null && match.awayScore !== null && match.awayScore > match.homeScore;
 
   return (
-    <div className="w-52 shrink-0 rounded-xl border border-line bg-pitch-light shadow-card">
+    <div className="w-52 shrink-0 rounded-xl border border-white/10 bg-[#060e0b]/40 backdrop-blur-md shadow-lg hover:border-white/20 transition-all duration-300">
       <TeamLine team={home} score={match.homeScore} isWinner={homeWins} />
-      <div className="h-px bg-line" />
+      <div className="h-[1px] bg-white/5" />
       <TeamLine team={away} score={match.awayScore} isWinner={awayWins} />
       {match.status === "scheduled" && (
-        <p className="border-t border-line px-3 py-1 text-[10px] uppercase tracking-widest2 text-gold/80">
+        <p className="border-t border-white/5 bg-white/[0.01] px-4 py-1 text-[9px] font-black uppercase tracking-widest text-amber-400/80">
           Próximo jogo
         </p>
       )}
@@ -70,18 +70,18 @@ export function Bracket() {
   }, [data]);
 
   if (isLoading) {
-    return <div className="h-64 w-full animate-pulse rounded-2xl bg-pitch-lighter" />;
+    return <div className="h-64 w-full animate-pulse rounded-2xl bg-white/[0.02] border border-white/5" />;
   }
 
   return (
-    <div className="overflow-x-auto pb-4">
-      <div className="flex min-w-max gap-8">
+    <div className="overflow-x-auto pb-6 scrollbar-thin">
+      <div className="flex min-w-max gap-10 py-4">
         {stages.map(({ stage, matches }) => (
           <div key={stage} className="flex flex-col gap-6">
-            <h3 className="text-center text-xs font-semibold uppercase tracking-widest2 text-bone/50">
+            <h3 className="text-center text-[10px] font-black uppercase tracking-widest text-neutral-400/80">
               {stage}
             </h3>
-            <div className="flex flex-1 flex-col justify-around gap-6">
+            <div className="flex flex-1 flex-col justify-around gap-8">
               {matches.map((match) => (
                 <BracketMatch key={match.id} match={match} teamsById={teamsById} />
               ))}
