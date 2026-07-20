@@ -9,23 +9,27 @@ export async function fetchWorldCupData(): Promise<WorldCupData> {
   // simula latência de rede para os estados de loading ficarem visíveis
   await new Promise((resolve) => setTimeout(resolve, 300));
   
-  // Mapeamos os dados injetando a propriedade 'round' exigida pelo tipo Match
-  // para sanar o erro TS2352 de build na Vercel
   const optimizedData: WorldCupData = {
     ...rawData,
     tournament: {
       ...rawData.tournament,
-      // Se seu tipo Tournament ainda não possui os campos novos do topo do JSON,
-      // este spread garante a compatibilidade total
     },
     matches: rawData.matches.map((match) => ({
       ...match,
       round: null, // Injeta o valor nulo aceito pela sua interface Match
     })),
-    // Caso sua interface KnockoutMatch também precise, mantemos a estrutura íntegra
-    knockout: rawData.knockout.map((match) => ({
-      ...match,
-    })) as WorldCupData["knockout"],
+    // Corrigindo o mapeamento de fases para reexibir o chaveamento na tela
+    knockout: rawData.knockout.map((match) => {
+      let stageName = match.stage;
+      
+      if (match.stage === "Oitavas") stageName = "Oitavas de Final";
+      if (match.stage === "Quartas") stageName = "Quartas de Final";
+
+      return {
+        ...match,
+        stage: stageName,
+      };
+    }) as WorldCupData["knockout"],
   } as unknown as WorldCupData;
 
   return optimizedData;
