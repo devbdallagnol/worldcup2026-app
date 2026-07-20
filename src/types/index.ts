@@ -12,7 +12,7 @@ export interface Match {
   id: string;
   stage: string;
   group: string | null;
-  round: string | null;
+  round?: string | null;
   homeTeam: string; // Team["id"]
   awayTeam: string; // Team["id"]
   homeScore: number | null;
