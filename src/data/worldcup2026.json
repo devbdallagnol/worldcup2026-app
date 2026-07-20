@@ -10,7 +10,10 @@
     "startDate": "2026-06-11T00:00:00-05:00",
     "endDate": "2026-07-19T18:00:00-05:00",
     "teamsCount": 48,
-    "groupsCount": 12
+    "groupsCount": 12,
+    "champion": "esp",
+    "runnerUp": "arg",
+    "thirdPlace": "eng"
   },
   "teams": [
     { "id": "mex", "code": "MEX", "name": "México", "group": "A", "flag": "mx" },
@@ -257,12 +260,11 @@
       "city": "Atlanta, EUA",
       "status": "finished"
     }
-    
   ],
   "knockout": [
     {
       "id": "ko_32_1",
-      "stage": "Dezesseis-avos de Final",
+      "stage": "Fase de 32",
       "homeTeam": "rsa",
       "awayTeam": "can",
       "homeScore": 0,
@@ -274,7 +276,7 @@
     },
     {
       "id": "ko_32_2",
-      "stage": "Dezesseis-avos de Final",
+      "stage": "Fase de 32",
       "homeTeam": "bra",
       "awayTeam": "jpn",
       "homeScore": 2,
@@ -286,12 +288,12 @@
     },
     {
       "id": "ko_32_3",
-      "stage": "Dezesseis-avos de Final",
+      "stage": "Fase de 32",
       "homeTeam": "ger",
       "awayTeam": "par",
       "homeScore": 1,
       "awayScore": 1,
-      "comment": "Paraguai avançou nos pênaltis (4-3)",
+      "comment": "Paraguai nos pênaltis (4-3)",
       "date": "2026-06-29T18:00:00-04:00",
       "stadium": "Gillette Stadium",
       "city": "Boston, EUA",
@@ -299,12 +301,12 @@
     },
     {
       "id": "ko_32_4",
-      "stage": "Dezesseis-avos de Final",
+      "stage": "Fase de 32",
       "homeTeam": "ned",
       "awayTeam": "mar",
       "homeScore": 1,
       "awayScore": 1,
-      "comment": "Marrocos avançou nos pênaltis (3-2)",
+      "comment": "Marrocos nos pênaltis (3-2)",
       "date": "2026-06-30T21:00:00-06:00",
       "stadium": "Estádio BBVA",
       "city": "Monterrey, México",
@@ -312,7 +314,7 @@
     },
     {
       "id": "ko_32_5",
-      "stage": "Dezesseis-avos de Final",
+      "stage": "Fase de 32",
       "homeTeam": "fra",
       "awayTeam": "swe",
       "homeScore": 3,
@@ -324,7 +326,7 @@
     },
     {
       "id": "ko_32_6",
-      "stage": "Dezesseis-avos de Final",
+      "stage": "Fase de 32",
       "homeTeam": "civ",
       "awayTeam": "nor",
       "homeScore": 1,
@@ -336,7 +338,7 @@
     },
     {
       "id": "ko_32_7",
-      "stage": "Dezesseis-avos de Final",
+      "stage": "Fase de 32",
       "homeTeam": "bel",
       "awayTeam": "sen",
       "homeScore": 3,
@@ -348,7 +350,7 @@
     },
     {
       "id": "ko_32_8",
-      "stage": "Dezesseis-avos de Final",
+      "stage": "Fase de 32",
       "homeTeam": "eng",
       "awayTeam": "cod",
       "homeScore": 2,
@@ -360,7 +362,7 @@
     },
     {
       "id": "ko_32_9",
-      "stage": "Dezesseis-avos de Final",
+      "stage": "Fase de 32",
       "homeTeam": "mex",
       "awayTeam": "ecu",
       "homeScore": 2,
@@ -372,7 +374,7 @@
     },
     {
       "id": "ko_32_10",
-      "stage": "Dezesseis-avos de Final",
+      "stage": "Fase de 32",
       "homeTeam": "por",
       "awayTeam": "cro",
       "homeScore": 2,
@@ -384,7 +386,7 @@
     },
     {
       "id": "ko_32_11",
-      "stage": "Dezesseis-avos de Final",
+      "stage": "Fase de 32",
       "homeTeam": "esp",
       "awayTeam": "aut",
       "homeScore": 3,
@@ -396,7 +398,7 @@
     },
     {
       "id": "ko_32_12",
-      "stage": "Dezesseis-avos de Final",
+      "stage": "Fase de 32",
       "homeTeam": "usa",
       "awayTeam": "bih",
       "homeScore": 2,
@@ -408,7 +410,7 @@
     },
     {
       "id": "ko_32_13",
-      "stage": "Dezesseis-avos de Final",
+      "stage": "Fase de 32",
       "homeTeam": "sui",
       "awayTeam": "alg",
       "homeScore": 2,
@@ -420,12 +422,12 @@
     },
     {
       "id": "ko_32_14",
-      "stage": "Dezesseis-avos de Final",
+      "stage": "Fase de 32",
       "homeTeam": "arg",
       "awayTeam": "cpv",
       "homeScore": 3,
       "awayScore": 2,
-      "comment": "Vitória da Argentina na prorrogação",
+      "comment": "Prorrogação",
       "date": "2026-07-03T18:00:00-04:00",
       "stadium": "Hard Rock Stadium",
       "city": "Miami, EUA",
@@ -433,7 +435,7 @@
     },
     {
       "id": "ko_32_15",
-      "stage": "Dezesseis-avos de Final",
+      "stage": "Fase de 32",
       "homeTeam": "col",
       "awayTeam": "gha",
       "homeScore": 1,
@@ -445,12 +447,12 @@
     },
     {
       "id": "ko_32_16",
-      "stage": "Dezesseis-avos de Final",
+      "stage": "Fase de 32",
       "homeTeam": "aus",
       "awayTeam": "egy",
       "homeScore": 1,
       "awayScore": 1,
-      "comment": "Egito avançou nos pênaltis (4-2)",
+      "comment": "Egito nos pênaltis (4-2)",
       "date": "2026-07-03T13:00:00-05:00",
       "stadium": "AT&T Stadium",
       "city": "Dallas, EUA",
@@ -458,7 +460,7 @@
     },
     {
       "id": "ko_16_1",
-      "stage": "Oitavas de Final",
+      "stage": "Oitavas",
       "homeTeam": "can",
       "awayTeam": "mar",
       "homeScore": 0,
@@ -470,7 +472,7 @@
     },
     {
       "id": "ko_16_2",
-      "stage": "Oitavas de Final",
+      "stage": "Oitavas",
       "homeTeam": "par",
       "awayTeam": "fra",
       "homeScore": 0,
@@ -482,7 +484,7 @@
     },
     {
       "id": "ko_16_3",
-      "stage": "Oitavas de Final",
+      "stage": "Oitavas",
       "homeTeam": "bra",
       "awayTeam": "nor",
       "homeScore": 1,
@@ -494,7 +496,7 @@
     },
     {
       "id": "ko_16_4",
-      "stage": "Oitavas de Final",
+      "stage": "Oitavas",
       "homeTeam": "mex",
       "awayTeam": "eng",
       "homeScore": 2,
@@ -506,7 +508,7 @@
     },
     {
       "id": "ko_16_5",
-      "stage": "Oitavas de Final",
+      "stage": "Oitavas",
       "homeTeam": "por",
       "awayTeam": "esp",
       "homeScore": 0,
@@ -518,7 +520,7 @@
     },
     {
       "id": "ko_16_6",
-      "stage": "Oitavas de Final",
+      "stage": "Oitavas",
       "homeTeam": "usa",
       "awayTeam": "bel",
       "homeScore": 1,
@@ -530,7 +532,7 @@
     },
     {
       "id": "ko_16_7",
-      "stage": "Oitavas de Final",
+      "stage": "Oitavas",
       "homeTeam": "arg",
       "awayTeam": "egy",
       "homeScore": 3,
@@ -542,12 +544,12 @@
     },
     {
       "id": "ko_16_8",
-      "stage": "Oitavas de Final",
+      "stage": "Oitavas",
       "homeTeam": "sui",
       "awayTeam": "col",
       "homeScore": 0,
       "awayScore": 0,
-      "comment": "Suíça avançou nos pênaltis (4-3)",
+      "comment": "Suíça nos pênaltis (4-3)",
       "date": "2026-07-07T13:00:00-07:00",
       "stadium": "BC Place",
       "city": "Vancouver, Canadá",
@@ -555,7 +557,7 @@
     },
     {
       "id": "ko_8_1",
-      "stage": "Quartas de Final",
+      "stage": "Quartas",
       "homeTeam": "fra",
       "awayTeam": "mar",
       "homeScore": 2,
@@ -567,7 +569,7 @@
     },
     {
       "id": "ko_8_2",
-      "stage": "Quartas de Final",
+      "stage": "Quartas",
       "homeTeam": "esp",
       "awayTeam": "bel",
       "homeScore": 2,
@@ -579,12 +581,12 @@
     },
     {
       "id": "ko_8_3",
-      "stage": "Quartas de Final",
+      "stage": "Quartas",
       "homeTeam": "nor",
       "awayTeam": "eng",
       "homeScore": 1,
       "awayScore": 2,
-      "comment": "Inglaterra avançou na prorrogação",
+      "comment": "Inglaterra na prorrogação",
       "date": "2026-07-11T17:00:00-04:00",
       "stadium": "Hard Rock Stadium",
       "city": "Miami, EUA",
@@ -592,12 +594,12 @@
     },
     {
       "id": "ko_8_4",
-      "stage": "Quartas de Final",
+      "stage": "Quartas",
       "homeTeam": "arg",
       "awayTeam": "sui",
       "homeScore": 3,
       "awayScore": 1,
-      "comment": "Argentina avançou na prorrogação",
+      "comment": "Argentina na prorrogação",
       "date": "2026-07-11T20:00:00-05:00",
       "stadium": "Arrowhead Stadium",
       "city": "Kansas City, EUA",
@@ -629,27 +631,28 @@
     },
     {
       "id": "third_place",
-      "stage": "Disputa pelo Terceiro Lugar",
+      "stage": "3º Lugar",
       "homeTeam": "fra",
       "awayTeam": "eng",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 4,
+      "awayScore": 6,
       "date": "2026-07-18T17:00:00-04:00",
       "stadium": "Hard Rock Stadium",
       "city": "Miami, EUA",
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": "final",
       "stage": "Final",
       "homeTeam": "esp",
       "awayTeam": "arg",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 1,
+      "awayScore": 0,
+      "comment": "1-0 na Prorrogação. Espanha Bicampeã!",
       "date": "2026-07-19T15:00:00-04:00",
       "stadium": "MetLife Stadium",
       "city": "Nova Jersey, EUA",
-      "status": "scheduled"
+      "status": "finished"
     }
   ]
 }

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Sparkles, Send, Loader2 } from "lucide-react";
-import { CountdownTimer } from "../components/CountdownTimer";
+import { Sparkles, Send, Loader2, Trophy, Medal } from "lucide-react";
 import { MatchCard } from "../components/MatchCard";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
@@ -63,10 +62,9 @@ function AiAssistant() {
         {messages.length === 0 && (
           <div className="rounded-xl bg-white/[0.01] p-4 border border-white/5 text-center">
             <p className="text-xs text-neutral-400 leading-relaxed">
-              Pergunte sobre uma seleção, um confronto ou peça uma previsão para
-              a final. Ex.:{" "}
+              Pergunte sobre a campanha da Espanha, estatísticas dos jogos ou curiosidades do mata-mata. Ex.:{" "}
               <span className="text-amber-400 font-bold block mt-1">
-                &quot;Quem tem mais chances de ser campeão?&quot;
+                &quot;Como foi o gol da Espanha na final?&quot;
               </span>
             </p>
           </div>
@@ -120,88 +118,116 @@ function AiAssistant() {
 
 export function Home() {
   const { data } = useWorldCupData();
-  const finalMatch = data?.knockout.find((m) => m.stage === "Final");
   const featuredMatches = data?.matches.slice(0, 3) ?? [];
 
   return (
-    <div className="mx-auto max-w-6xl px-5 py-12 lg:py-20">
+    <div className="mx-auto max-w-6xl px-5 py-8 lg:py-20">
       
       {/* Hero Principal */}
-      <section className="relative overflow-hidden rounded-[32px] border border-white/5 bg-[#060e0b]/30 p-8 shadow-[0_24px_70px_rgba(0,0,0,0.3)] sm:p-12 lg:p-16">
+      <section className="relative overflow-hidden rounded-[32px] border border-white/5 bg-[#060e0b]/30 p-6 shadow-[0_24px_70px_rgba(0,0,0,0.3)] sm:p-12 lg:p-16">
         {/* Glow de fundo */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(227,178,60,0.1),_transparent_45%)]" />
         
-        <div className="relative grid gap-12 lg:gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+        <div className="relative grid gap-8 lg:gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div>
             <div className="mb-6 flex flex-wrap gap-2.5">
-              <span className="rounded-full border border-amber-500/20 bg-amber-500/5 px-3.5 py-1.5 text-[10px] font-black uppercase tracking-widest text-amber-400">
+              <span className="rounded-full border border-amber-500/20 bg-amber-500/5 px-3.5 py-1.5 text-[10px] font-black uppercase tracking-widest text-amber-400 flex items-center gap-1">
                 ⭐ 48 seleções
               </span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-[10px] font-black uppercase tracking-widest text-neutral-300">
-                🏆 Fase de grupos
+              <span className="rounded-full border border-emerald-500/20 bg-emerald-500/5 px-3.5 py-1.5 text-[10px] font-black uppercase tracking-widest text-emerald-400 flex items-center gap-1">
+                🏆 Torneio Encerrado
               </span>
             </div>
             <p className="mb-3 text-[11px] font-black uppercase tracking-widest text-amber-400/80 text-glow">
               México · Estados Unidos · Canadá
             </p>
-            <h1 className="font-display text-4xl leading-tight font-black tracking-tight text-neutral-100 sm:text-5xl lg:text-6xl">
-              A Copa do Mundo <span className="gold-gradient-text">2026</span> ao vivo, grupo a grupo.
+            <h1 className="font-display text-3xl leading-tight font-black tracking-tight text-neutral-100 sm:text-5xl lg:text-6xl">
+              A Copa do Mundo <span className="gold-gradient-text">2026</span> consagrou sua campeã!
             </h1>
             <p className="mt-5 max-w-xl text-sm text-neutral-400 leading-relaxed font-medium">
-              Acompanhe os 48 países, a fase de grupos, o mata-mata e converse
-              com um assistente de IA para tirar dúvidas sobre a maior Copa da história.
+              A Espanha superou a Argentina em uma final histórica e conquistou o título. 
+              Revise todos os confrontos da fase de grupos, a árvore do mata-mata e use nossa IA para analisar as estatísticas.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
-              <Link to="/grupos" className="flex-shrink-0">
-                <Button variant="primary" size="lg">
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <Link to="/grupos" className="w-full sm:w-auto">
+                <Button variant="primary" size="lg" className="w-full sm:w-auto justify-center">
                   📊 Ver grupos
                 </Button>
               </Link>
-              <Link to="/mata-mata" className="flex-shrink-0">
-                <Button variant="outline" size="lg">
+              <Link to="/mata-mata" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto justify-center">
                   ⚡ Ver mata-mata
                 </Button>
               </Link>
             </div>
           </div>
 
-          <div className="glass-panel rounded-2xl border border-white/5 bg-black/20 p-2 shadow-2xl">
-            {finalMatch ? (
-              <CountdownTimer
-                targetDate={finalMatch.date}
-                label="A grande final começa em"
-              />
-            ) : (
-              <div className="rounded-xl border border-white/5 bg-white/[0.01] p-6 text-center">
-                <p className="text-xs font-semibold text-neutral-500">
-                  A programação será atualizada em breve.
-                </p>
+          {/* Card de Destaque da Campeã (Substitui o countdown de forma responsiva) */}
+          <div className="glass-panel rounded-2xl border border-white/5 bg-black/40 p-6 shadow-2xl relative overflow-hidden flex flex-col gap-4">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl -mr-8 -mt-8" />
+            
+            <div className="flex items-center justify-between border-b border-white/5 pb-3">
+              <span className="text-[10px] font-black uppercase tracking-wider text-neutral-400">
+                Resultado Final
+              </span>
+              <span className="rounded-full bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-amber-400 flex items-center gap-1">
+                <Trophy className="h-2.5 w-2.5" /> Campeã
+              </span>
+            </div>
+
+            <div className="flex flex-col items-center py-2 text-center">
+              <div className="relative mb-2">
+                <div className="absolute inset-0 bg-amber-400/20 rounded-full blur-md animate-pulse" />
+                <div className="relative rounded-2xl bg-gradient-to-b from-amber-400 to-amber-600 p-3.5 text-black shadow-lg">
+                  <Trophy className="h-8 w-8 text-neutral-900 stroke-[2.5]" />
+                </div>
               </div>
-            )}
+              <h2 className="font-display text-2xl font-black text-neutral-100 tracking-tight">
+                Espanha Bicampeã!
+              </h2>
+              <p className="text-xs text-neutral-400 font-medium mt-1">
+                Placar da Final: ESP 1 x 0 ARG (Prorrogação)
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2 border-t border-white/5 pt-3 text-left">
+              <div className="rounded-xl bg-white/[0.02] border border-white/5 p-2.5">
+                <span className="text-[9px] font-bold text-neutral-500 uppercase tracking-wider flex items-center gap-1">
+                  <Medal className="h-3 w-3 text-neutral-400" /> Vice-campeã
+                </span>
+                <p className="text-xs font-black text-neutral-200 mt-0.5">Argentina</p>
+              </div>
+              <div className="rounded-xl bg-white/[0.02] border border-white/5 p-2.5">
+                <span className="text-[9px] font-bold text-neutral-500 uppercase tracking-wider flex items-center gap-1">
+                  <Medal className="h-3 w-3 text-amber-600" /> 3º Lugar
+                </span>
+                <p className="text-xs font-black text-neutral-200 mt-0.5">Inglaterra</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Grid Secundário */}
-      <section className="mt-20 grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+      <section className="mt-16 lg:mt-20 grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
         <div>
           <div className="mb-8 flex items-center justify-between gap-4">
             <div>
-              <h2 className="font-display text-3xl font-black tracking-tight text-neutral-100">
-                🎯 Jogos em destaque
+              <h2 className="font-display text-2xl sm:text-3xl font-black tracking-tight text-neutral-100">
+                🎯 Partidas de Destaque
               </h2>
               <p className="mt-1 text-xs text-neutral-500 font-semibold">
-                Próximas rodadas da fase de grupos
+                Resultados marcantes do torneio
               </p>
             </div>
             <Link
               to="/jogos"
-              className="rounded-xl border border-amber-500/30 px-4 py-2 text-[11px] font-bold uppercase tracking-wider text-amber-400 hover:bg-amber-500/10 hover:border-amber-500/50 transition-all duration-300"
+              className="rounded-xl border border-amber-500/30 px-3 py-2 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-amber-400 hover:bg-amber-500/10 hover:border-amber-500/50 transition-all duration-300 whitespace-nowrap"
             >
               Ver mais →
             </Link>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 auto-rows-max">
+          <div className="grid gap-4 sm:grid-cols-2 auto-rows-max">
             {featuredMatches.map((match) => (
               <MatchCard key={match.id} match={match} />
             ))}
